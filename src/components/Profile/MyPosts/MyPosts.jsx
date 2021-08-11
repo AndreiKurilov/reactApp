@@ -9,15 +9,15 @@ const MyPosts = (props) => {
 
   let newPostElement = React.createRef();
     
-  // let addingPost = () => {
-  //   props.addPost();
-  // }
-
+  let addingPost = () => {
+    props.dispatch({type: 'ADD-POST'});
+  }
+  // debugger
   let onPostChange = () => {
     let text = newPostElement.current.value;
-    props.updateNewPostText(text);
+    props.dispatch({ type: 'UPDATE-NEW-POST-TEXT', newText: text});
   }
-
+  // debugger  
   return (
     <div className={c.postsBlock}>
       <h3>My posts</h3>
@@ -28,7 +28,7 @@ const MyPosts = (props) => {
             value={props.newPostText} />
         </div>
         <div>
-          <button onClick={ props.addPost }>Add</button>
+          <button onClick={ addingPost }>Add</button>
         </div>
       </div>
       <div className={c.posts}>
