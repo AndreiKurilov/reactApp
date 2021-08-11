@@ -26,49 +26,77 @@ let store = {
       newMessageText: 'Enter something'
     }
   },
+  _callSubscriber() {
+    console.log("State changed") 
+  },
   
   getState () {
     return this._state;
   },
-
-  _callSubscriber() {
-    console.log("State changed")
-  },
-  
-  addPost () {
-    debugger
-    let newPost = { 
-      id: 3, 
-      message: this._state.profilePage.newPostText, 
-      likesCount: 0 
-    };
-    this._state.profilePage.posts.push(newPost);
-    this._state.profilePage.newPostText = '';
-    this._callSubscriber(this._state);
-  },
-  
-  updateNewPostText (newText) {
-    this._state.profilePage.newPostText = newText;
-    this._callSubscriber(this._state);
-  },
-  
-  addMessage () {
-    let newMessage = {
-      id: 6,
-      message: this._state.dialogsPage.newMessageText
-    };
-    this._state.dialogsPage.messages.push(newMessage);
-    this._state.dialogsPage.newMessageText = '';
-    this._callSubscriber(this._state);
-  },
-  
-  updateNewMessageText (newText) {
-    this._state.dialogsPage.newMessageText = newText;
-    this._callSubscriber(this._state);
-  },
   
   subscribe (observer) {
     this._callSubscriber = observer;
+  },
+
+  // addPost () {
+  //   debugger
+  //   let newPost = { 
+  //     id: 3, 
+  //     message: this._state.profilePage.newPostText, 
+  //     likesCount: 0 
+  //   };
+  //   this._state.profilePage.posts.push(newPost);
+  //   this._state.profilePage.newPostText = '';
+  //   this._callSubscriber(this._state);
+  // },
+  
+  // updateNewPostText (newText) {
+  //   this._state.profilePage.newPostText = newText;
+  //   this._callSubscriber(this._state);
+  // },
+  
+  // addMessage () {
+  //   let newMessage = {
+  //     id: 6,
+  //     message: this._state.dialogsPage.newMessageText
+  //   };
+  //   this._state.dialogsPage.messages.push(newMessage);
+  //   this._state.dialogsPage.newMessageText = '';
+  //   this._callSubscriber(this._state);
+  // },
+  
+  // updateNewMessageText (newText) {
+  //   this._state.dialogsPage.newMessageText = newText;
+  //   this._callSubscriber(this._state);
+  // },
+  
+
+  dispatch(action) {
+    if (action === 'ADD-POST') {
+      let newPost = { 
+        id: 3, 
+        message: this._state.profilePage.newPostText, 
+        likesCount: 0 
+      };
+      this._state.profilePage.posts.push(newPost);
+      this._state.profilePage.newPostText = '';
+      this._callSubscriber(this._state);
+    } else if (action === 'UPDATE-NEW-POST-TEXT') {
+      this._state.profilePage.newPostText = action.newText;
+      this._callSubscriber(this._state);
+    } else if (action === 'ADD-MESSAGE') {
+      let newMessage = {
+        id: 6,
+        message: this._state.dialogsPage.newMessageText
+      };
+      this._state.dialogsPage.messages.push(newMessage);
+      this._state.dialogsPage.newMessageText = '';
+      this._callSubscriber(this._state);
+    } else if (action === 'UPDATE-NEW-MESSAGE-TEXT') {
+      this._state.dialogsPage.newMessageText = action.newText;
+      this._callSubscriber(this._state);
+    }
+
   }
 }
 
