@@ -13,14 +13,15 @@ const Dialogs = (props) => {
 
   let messageRef = React.createRef();
 
-  // let addingMessage = () => {
-  //   props.addMessage;
-  // }
-
   let onMessageChange =() => {
     let text = messageRef.current.value;
-    props.updateNewMessageText(text);
+    props.dispatch({ type: 'UPDATE-NEW-MESSAGE-TEXT', newText: text});
   }
+  
+  let addingMessage = () => {
+    props.dispatch({type: 'ADD-MESSAGE'});
+  }
+
 
   return (
     <div className={d.dialogs}>
@@ -33,7 +34,7 @@ const Dialogs = (props) => {
           ref={messageRef}
           value={props.dialogsPage.newMessageText} />
         <div>
-          <button onClick={ props.addMessage }>Add message</button>
+          <button onClick={ addingMessage }>Add message</button>
         </div>
       </div>
     </div>
