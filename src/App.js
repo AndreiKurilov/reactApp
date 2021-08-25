@@ -15,12 +15,10 @@ const App = (props) => {
         <Navbar />
         <div className="app-wrapper-content">
           <Route path="/dialogs" 
-                 render={ () => <DialogsContainer 
-                 />} />
+                 render={ () => <DialogsContainer />} />
           <Route path="/profile" 
                  render={ () => 
-                 <Profile 
-                 />} />
+                 <Profile />} />
           <Route path="/news" component={News} />
         </div>
       </div>
