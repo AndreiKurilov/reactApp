@@ -3,17 +3,7 @@ const UNFOLLOW ='UNFOLLOW';
 const SET_USERS ='SET_USERS';
 
 let initialState = {
-  users: [
-    { id: 1, photoUrl: 'https://avatarko.ru/img/kartinka/1/Shrek.jpg', 
-    followed: false, fullName: 'Andrew', status: 'I am the boss', 
-    location: {city: 'Moscow', country: 'Russia'} },
-    { id: 2, photoUrl: 'https://avatarko.ru/img/kartinka/1/Shrek.jpg', 
-    followed: true, fullName: 'Sasha', status: 'I am not the boss', 
-    location: {city: 'Minsk', country: 'Belarus'} },
-    { id: 3, photoUrl: 'https://avatarko.ru/img/kartinka/1/Shrek.jpg', 
-    followed: false, fullName: 'Mikola', status: 'I am the ???', 
-    location: {city: 'Kiev', country: 'Ukrain'} },
-  ]
+  users: [ ]
 }
 
 const usersReducer = (state = initialState, action) => {
@@ -54,6 +44,6 @@ export const unfollowAC = (userId) =>
 ({ type: UNFOLLOW, userId })
 
 export const setUsersAC = (users) => 
-({ type: SET_USERS })
+({ type: SET_USERS, users })
 
 export default usersReducer;
