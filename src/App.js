@@ -18,11 +18,9 @@ const App = (props) => {
           <Route path="/dialogs" 
                  render={ () => <DialogsContainer />} />
           <Route path="/profile" 
-                 render={ () => 
-                 <Profile />} />
+                 render={ () => <Profile />} />
           <Route path="/users" 
-                 render={ () => 
-                 <UsersContainer /> } />
+                 render={ () => <UsersContainer /> } />
           <Route path="/news" component={News} />
         </div>
       </div>
