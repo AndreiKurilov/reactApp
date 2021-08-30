@@ -3,9 +3,7 @@ import { followAC, unfollowAC, setUsersAC } from '../../redux/users-reducer';
 import Users from './Users';
 
 let mapStateToProps = (state) => {
-  return {
-    users: state.usersPage.users
-  }
+  return { users: state.usersPage.users }
 }
 
 let mapDispatchToProps = (dispatch) => {
