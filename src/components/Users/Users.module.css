@@ -3,7 +3,11 @@
   height: 40px;
   margin-bottom: 10px;
 }
-
 .selectedPage {
   font-weight: bold;
+}
+.preloaderStyle {
+  background-color: rgb(95, 172, 196);
+  width: 200px;
+  height: 100px;
 }
