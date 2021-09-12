@@ -9,12 +9,9 @@
 .dialogsItems .active {
   color: rgb(27, 24, 185);
 }
-/* .dialog {
-
-} */
 .messages {
   padding: 10px;
 }
 .messages .message {
-  color: white;
+  color: rgb(229, 235, 221);
 }
